@@ -13,21 +13,21 @@ class Hand
     const int LOW_ACE_VALUE = 1;
 
     int get_sum_of_card_values(std::vector<Card> cards);
-    std::vector<Card> get_list_without_aces();
-    void find_ace_sums();
-    int get_number_of_aces();
+    std::vector<Card> get_list_without_aces(void);
+    void find_ace_sums(void);
+    int get_number_of_aces(void);
 
     public:
 
-        Hand();
+        Hand(void);
 
         void add_card(Card c);
-        int get_hand_size();
+        int get_hand_size(void);
 
         Card get_card(int i);
 
-        std::string show_hand();
+        std::string show_hand(void);
 
-        std::vector<int> get_numerical_value();
+        std::vector<int> get_numerical_value(void);
 
 };

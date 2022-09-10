@@ -7,12 +7,12 @@ Card::Card(Suit suit, Value value)
     this->value = value;
 }
 
-Suit Card::get_suit()
+Suit Card::get_suit(void)
 {
     return this->suit;
 }
 
-Value Card::get_value()
+Value Card::get_value(void)
 {
     return this->value;
 }
@@ -27,7 +27,7 @@ void Card::set_value(Value value)
     this->value = value;
 }
 
-std::vector<uint8_t> Card::get_numerical_value()
+std::vector<uint8_t> Card::get_numerical_value(void)
 {
     switch (this->value)
     {
@@ -44,24 +44,29 @@ std::vector<uint8_t> Card::get_numerical_value()
     }
 }
 
-Suit Card::get_random_suit()
+Suit Card::get_random_suit(void)
 {
     return (Suit)(rand() % NUM_OF_SUITS);
 }
 
-Value Card::get_random_value()
+Value Card::get_random_value(void)
 {
     return (Value)(rand() % NUM_OF_VALS);
 }
 
-std::string Card::toString()
+std::string Card::toString(void)
 {
-    auto valstr = this->VALUE_STR.find(this->value)->second;
-    auto suitstr = this->SUIT_STR.find(this->suit)->second;
+    auto valstr = value_to_string(this->value);
+    auto suitstr = suit_to_string(this->suit);
     return (valstr + " " + suitstr);
 }
 
-bool Card::equals(Card card)
+bool operator==(Card lhs, Card rhs)
 {
-    return (this->get_value() == card.get_value() && this->get_suit() == card.get_suit());
+    return (lhs.get_value() == rhs.get_value() && lhs.get_suit() == rhs.get_suit());
+}
+
+bool operator!=(Card lhs, Card rhs)
+{
+    return !(lhs == rhs);
 }

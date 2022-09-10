@@ -1,6 +1,6 @@
 #include "Hand.h"
 
-Hand::Hand()
+Hand::Hand(void)
 {
     this->hand.clear();
 }
@@ -10,7 +10,7 @@ void Hand::add_card(Card c)
     this->hand.push_back(c);
 }
 
-int Hand::get_hand_size()
+int Hand::get_hand_size(void)
 {
     return this->hand.size();
 }
@@ -20,7 +20,7 @@ Card Hand::get_card(int i)
     return this->hand.at(i);
 }
 
-std::string Hand::show_hand()
+std::string Hand::show_hand(void)
 {
     std::string handString;
 
@@ -32,7 +32,7 @@ std::string Hand::show_hand()
     return handString.substr(0, handString.length()-2);
 }
 
-std::vector<int> Hand::get_numerical_value()
+std::vector<int> Hand::get_numerical_value(void)
 {
     std::vector<int> sums;
     std::vector<Card> sub_hand = get_list_without_aces();
@@ -59,7 +59,7 @@ int Hand::get_sum_of_card_values(std::vector<Card> cards)
     return sum;
 }
 
-std::vector<Card> Hand::get_list_without_aces()
+std::vector<Card> Hand::get_list_without_aces(void)
 {
     std::vector<Card> without_aces;
 
@@ -73,7 +73,7 @@ std::vector<Card> Hand::get_list_without_aces()
     return without_aces;
 }
 
-void Hand::find_ace_sums()
+void Hand::find_ace_sums(void)
 {
     this->aceSums.clear();
     int aces = get_number_of_aces();
@@ -90,7 +90,7 @@ void Hand::find_ace_sums()
     }
 }
 
-int Hand::get_number_of_aces()
+int Hand::get_number_of_aces(void)
 {
     int count = 0;
 

@@ -9,13 +9,13 @@ class Deck
 
     public:
 
-        Deck();
+        Deck(void);
 
-        void reset();
+        void reset(void);
 
         Card get_card(int i);
         Card deal_card(int i);
 
-        int get_deck_size();
+        int get_deck_size(void);
 
 };

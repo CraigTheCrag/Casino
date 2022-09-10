@@ -2,7 +2,7 @@
 #include <random>
 #include "Deck.h"
 
-Deck::Deck()
+Deck::Deck(void)
 {
     for (int suit=0;suit<Card::NUM_OF_SUITS;suit++)
     {
@@ -18,7 +18,7 @@ Deck::Deck()
     shuffle(this->deck.begin(), this->deck.end(), rng);
 }
 
-void Deck::reset() { this->dealtCards.clear(); }
+void Deck::reset(void) { this->dealtCards.clear(); }
 
 Card Deck::get_card(int i)
 {
@@ -31,7 +31,7 @@ Card Deck::deal_card(int i)
 
     for (int j=0;j<this->dealtCards.size();j++)
     {
-        if (current.equals(dealtCards.at(j)))
+        if (current == dealtCards.at(j))
         {
             return Card(Suit::INVALID, Value::INVALID);
         }
@@ -41,7 +41,7 @@ Card Deck::deal_card(int i)
     return current;
 }
 
-int Deck::get_deck_size()
+int Deck::get_deck_size(void)
 {
     return this->deck.size();
 }
