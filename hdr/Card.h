@@ -2,18 +2,15 @@
 #include <string>
 #include <map>
 
-enum Suit { DIAMOND, HEART, CLUB, SPADE};
+enum Suit { DIAMOND, HEART, CLUB, SPADE, INVALID};
 
-enum Value { TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING, ACE };
+enum Value { TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING, ACE, INVALID };
 
 class Card
 {
 
     Suit suit;
     Value value;
-
-    static const int NUM_OF_VALS = 13;
-    static const int NUM_OF_SUITS = 4;
 
     const std::map<Suit, std::string> SUIT_STR {
         { DIAMOND, "DIAMOND"},
@@ -31,6 +28,10 @@ class Card
     };
 
     public:
+
+        static const int NUM_OF_VALS = 13;
+        static const int NUM_OF_SUITS = 4;
+
         Card(Suit suit, Value value);
 
         Suit get_suit();
